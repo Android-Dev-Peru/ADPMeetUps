@@ -1,0 +1,4 @@
+package presentation
+
+class EventViewModel {
+}
