@@ -1,12 +1,20 @@
-## Android Dev Perú App
+# MVP - Project architecture
 
-### Introduction
-This project involves the lastest technologies related to Android and Kotlin development. That is, you'll find here features developed using Jetpack Compose, Kotlin Multiplatform, Gradle, a modular and layered architecture, testing, and all related MAD (Modern Android Development) skills.
+## Content
 
-The project will start being maintained by the community organizers to define the base architecture and rfeatures roadmap and will be open to pull requests.
+- [🌟 Objective](#-objective)
+- [📓 Background](#-background)
+- [🤝 Key decisions](#-key-decisions)
+- [🔍 Detailed Design](#-detailed-design)
+  - [🏗️ Architecture](#-architecture)
+  - [🖥️ Tech Stack](#-tech-stack)
 
+## 🌟 Objective
 
-### Main Features
+This document describes the key architectural decisions that we're taking for the very first version of this app. These decisions will influence most of the implementation details of the upcoming features. However, it's meant to evolve as the app scales - it's not set on stone.
+
+## 📓 Background
+
 The project will contain the following features:
 1. Events
   - 1.1 Show list of events (MeetUps and workshops) ordered by dated: from the latest to the oldest. Moreover, user will be able to filter events by type, month, year, etc.
@@ -18,9 +26,7 @@ The project will contain the following features:
 3. Authentication
   - 3.1 Login with Google and Apple: required in order to have the app available for AppStore (some day). It is not mandatory to log into the app to navigate through it. However, could be required in order to register attendance to an event.
 
-**MVP (Minimal Viable Product)**
-
-On the first version, we are going to prioritize the following features:
+On the first version (MVP), we are going to prioritize the following features:
 
 - 1.1 Events list (without filtering)
 - 1.2 Events details (without attendants list)
@@ -29,9 +35,21 @@ On the first version, we are going to prioritize the following features:
 
 ---
 
+## 🤝 Key Decisions
 
-### Architecture
-We are going to implement a layered and modular architecture. However, for the first iteration, we are going to keep all the code in one single Gradle module (shared) and there, divide the code into packages.
+1. Layered & modular architecture within a single module:
+    - will allow us to move faster
+    - can be refactored into multi-module once the project scales
+2. Repository pattern for data layer:
+    - allows us to establish proper separation of concerns
+    - simplifies testing
+    - standard practice across industry
+3. Unidirectional data flow in the presentation layer
+
+## 🔍 Detailed Design
+
+### 🏗️ Architecture
+We are going to implement a layered and modular architecture. For the first iteration, we are going to keep all the code in one single Gradle module (shared) and there, divide the code into packages.
 
 
 **Domain layer**
@@ -89,7 +107,7 @@ class UserProfile
  - List<String> attendedEventsIds
 
 
-Otras interfaces de repositorios serán definidas después.
+Other interfaces and repositories will be defined later.
 
 ```
 
@@ -101,7 +119,7 @@ _*The Event data class won't have the list of attendees as an attribute for the 
 
 **Data layer**
 
-Since we are not going to consume any external data source to begin, we should apply the Repository Pattern properly. The following is the data layer structured suggested:
+Since we are not going to consume any external data source to begin, we should apply the Repository Pattern properly. The following is the suggested data layer structure:
 ```
 - domain
  - repository
@@ -126,8 +144,8 @@ The structure should have:
 - feature-package -> we are going to have only two: events and community
 ```
 
-### Tech Stack
-As you might already know the stack is going to be conformed by:
+#### 🖥️ Tech Stack
+The stack is going to be conformed by:
 - Kotlin Multiplatform
 - Compose Multiplatform
 - Kotlin 1.9
@@ -142,20 +160,3 @@ As you might already know the stack is going to be conformed by:
 **Design**
 
 We tried to use GalileoAi but it's still in development and closed to all people. We could just propose a design while developing. It's **important to define de theming: colors, text styles, etc**.
-
-
-**To contribute**
-1. Please, write your Pull Requests providing a brief description, what were the main changes and how or why did you did what you did. If UI is altered, please provide a screenshot of how it used to look and how it looks now. We are going to define a Pull Request template later.
-
-2. The development moves thanks to a Github Project. Please, read carefully all the reamining tasks and feel free to propouse new tasks linking the Github Issue.
-
-3. Labels are always put by maintainers.
-4. If you are not part of the organization team, please fork the repository and add your contributions through a Pull Request.
-
-4. For new features, create a `feature/featureName` branch. For fixes: `bugfix/taskCode` or `bugfix/fixName`.
-
-
- 
-
-
-

@@ -1,11 +1,20 @@
 ## Android Dev Perú App
 
-### Introducción
-Este proyecto involucra las últimas tecnologías relacionadas con el desarrollo de apps Android y Kotlin. Es decir, aquí encontrarás funciones desarrolladas con Jetpack Compose, Kotlin Multiplatform, Gradle, utilizando una arquitectura modular y en capas, testing y todas las habilidades MAD (desarrollo moderno de Android) relacionadas.
+## Contenido
 
-Los organizadores de la comunidad comenzarán a darle vida al proyecto para definir la arquitectura base y la hoja de ruta de características y estará abierto a Pull Requests.
+- [🌟 Objetivo](#-objetivo)
+- [📓 Contexto](#-contexto)
+- [🤝 Decisiones clave](#-decisiones-clave)
+- [🔍 Diseño detallado](#-diseño-detallado)
+  - [🏗️ Arquitectura](#-arquitectura)
+  - [🖥️ Tech Stack](#-tech-stack)
 
-### Principales funcionalidades
+## 🌟 Objetivo
+
+Este documento detalla las decisiones arquitectónicas fundamentales que hemos tomado para la primera versión de esta app. No obstante, la idea es que esta arquitectura se adapte a medida que la app vaya escalando.
+
+## 📓 Contexto
+
 El proyecto contendrá los siguientes _features_:
 1. Eventos
    - 1.1 Mostrar la lista de eventos (MeetUps y talleres/workshops) ordenados por fecha: del más reciente al más antiguo. Además, el usuario podrá filtrar eventos por tipo, mes, año, etc.
@@ -17,9 +26,7 @@ El proyecto contendrá los siguientes _features_:
 3. Autenticación
    - 3.1 Inicio de sesión con Google y Apple: requerido para tener la aplicación disponible en AppStore (algún día). No será obligatorio iniciar sesión en la aplicación para navegar por ella. Sin embargo, podría ser necesario para registrar la asistencia a un evento.
 
-**MVP (Producto Mínimo Viable)**
-
-En la primera versión, vamos a priorizar las siguientes características:
+En la primera versión (MVP), vamos a priorizar las siguientes características:
 
 - 1.1 Lista de eventos (sin filtrar)
 - 1.2 Detalles de eventos (sin lista de asistentes)
@@ -28,8 +35,20 @@ En la primera versión, vamos a priorizar las siguientes características:
 
 ---
 
+## 🤝 Decisiones clave
 
-### Arquitectura
+1. Arquitectura en capas y modular dentro de un único módulo:
+    - Nos permitirá avanzar más rápido
+    - Se puede refactorizar a multimódulo una vez que el proyecto escale
+2. Patrón de repositorio para la capa de datos:
+    - Nos permite establecer una adecuada separación de responsabilidades
+    - Simplifica las pruebas
+    - Práctica estándar en la industria
+3. Flujo de datos unidireccional en la capa de presentación
+
+## 🔍 Diseño detallado
+
+### 🏗️ Arquitectura
 Vamos a implementar una arquitectura modular y en capas. Sin embargo, para la primera iteración, mantendremos todo el código en un solo módulo Gradle (_shared_) y allí dividiremos el código en paquetes.
 
 **Capa de dominio o Lógica de Negocio**
@@ -61,7 +80,7 @@ interface EventsRepository
 
 
 
---- not part of MVP ---
+--- no es parte del MVP ---
 
 class Attendee
  - String id
@@ -87,7 +106,7 @@ class UserProfile
  - List<String> attendedEventsIds
 
 
-Other repository interfaces to be defined later.
+Otras interfaces de repositorios serán definidas después.
 
 ```
 
@@ -124,7 +143,7 @@ La estructura debe tener:
 - feature-package -> tendremos solo dos por ahora: events y community
 ```
 
-### Tech Stack
+### 🖥️ Tech Stack
 Como ya imaginarás el tech stack estará conformado por:
 - Kotlin Multiplatform
 - Compose Multiplatform
@@ -140,22 +159,3 @@ Como ya imaginarás el tech stack estará conformado por:
 **Diseño**
 
 Intentamos utilizar GalileoAi pero aún está en desarrollo y cerrado a todas las personas. Podríamos simplemente proponer un diseño mientras lo desarrollamos. Es **importante definir la temática: colores, estilos de texto, etc**.
-
-
-**Para contribuir**
-
-1. Por favor, escribe tus Pull Requests brindando una breve descripción, cuáles fueron los principales cambios y cómo o por qué hiciste lo que hiciste. Si se modifica la interfaz de usuario, proporcione una captura de pantalla de cómo se veía antes y cómo se ve ahora. Más adelante definiremos una plantilla para los Pull Requests.
-
-2. El desarrollo se mueve gracias a un Proyecto Github. Por favor, lea atentamente todas las tareas restantes y no dude en proponer nuevas tareas que estén enlazadas a issues de Github.
-
-3. Las etiquetas (labels) siempre las ponen los mantenedores/organizadores.
-
-4. Si no eres parte del equipo de la organización, crea un _fork_ del repositorio y agrega tus contribuciones a través de un Pull Request.
-
-4. Para nuevos _features_, cree una rama `feature/featureName`. Para fixes/correcciones: `bugfix/taskCode` o `bugfix/fixName`.
-
-
- 
-
-
-
