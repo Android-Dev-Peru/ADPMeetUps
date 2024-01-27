@@ -133,6 +133,7 @@ Since we are not going to consume any external data source to begin, we should a
 ```
 _Notice that the data sources are going to be implementations to be injected into the `EventsRepositoryImpl` since we are going to have (in the MVP) only one data source._
 
+_Disclaimer: implementation details for external data sources or backend -> TBD!_
 
 
 **Presentation Layer**

@@ -132,6 +132,7 @@ Para empezar no vamos a consumir ninguna fuente de datos externa, aplicaremos el
 ```
 _Tenga en cuenta que las fuentes de datos serán implementaciones que se inyectarán en `EventsRepositoryImpl` ya que vamos a tener (en el MVP) solo una fuente de datos._
 
+_Disclaimer: detalles de implementación de las fuentes de datos externas y/o backend -> TBD!_
 
 
 **Capa de Presentación o UI**
