@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="color.adp_black">#171717</color>
-    <color name="color.adp_gray">#717171</color>
+    <color name="color.adp_white">#FFFFFF</color>
 </resources>
