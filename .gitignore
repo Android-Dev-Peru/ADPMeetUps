@@ -8,6 +8,9 @@ local.properties
 
 # Log/OS Files
 *.log
+.DS_Store
+**/.DS_Store
+**/**/.DS_Store
 
 # Android Studio generated files and folders
 captures/
@@ -126,3 +129,8 @@ fabric.properties
 
 ### AndroidStudio Patch ###
 !/gradle/wrapper/gradle-wrapper.jar
+
+# ios
+iosApp.xcodeproj/project.xcworkspace/xcuserdata/
+iosApp/iosApp.xcodeproj/xcuserdata/
+iosApp.xcodeproj/xcuserdata/
