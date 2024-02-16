@@ -19,4 +19,5 @@ enum class EventType { METTUP, WORKSHOP }
 enum class EventLocation { ONLINE, INPERSON }
 data class Speaker(
     val name: String,
+    val profilePicUrl: String
 )
