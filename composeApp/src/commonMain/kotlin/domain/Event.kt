@@ -2,6 +2,9 @@ package domain
 
 import kotlinx.datetime.LocalDate
 
+/**
+ * A MeetUp Event.
+ */
 data class Event(
     val id: String,
     val title: String,
@@ -15,9 +18,11 @@ data class Event(
     val addressInfo: String
 )
 
-enum class EventType { METTUP, WORKSHOP }
-enum class EventLocation { ONLINE, INPERSON }
 data class Speaker(
     val name: String,
-    val profilePicUrl: String
+    val profilePicUrl: String?
 )
+
+enum class EventType { MEETUP, WORKSHOP }
+
+enum class EventLocation { ONLINE, IN_PERSON }
