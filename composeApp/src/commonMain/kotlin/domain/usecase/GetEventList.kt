@@ -7,6 +7,7 @@ import domain.Event
 import kotlinx.datetime.DatePeriod
 
 class GetEventList(private val eventsRepository: EventsRepository) {
-    suspend fun invoke(period: Int): ResultType<List<Event>, Failure> =
-        eventsRepository.getAllEvent(period)
+    suspend fun invoke(period: Int): ResultType<List<Event>, Failure> {
+        return ResultType.Success(eventsRepository.getAllEvent(period))
+    }
 }

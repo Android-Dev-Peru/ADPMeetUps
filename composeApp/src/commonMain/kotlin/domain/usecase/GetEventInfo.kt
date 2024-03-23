@@ -7,6 +7,7 @@ import domain.Event
 import kotlinx.datetime.LocalDate
 
 class GetEventInfo(private val eventsRepository: EventsRepository) {
-    suspend fun invoke(date: LocalDate): ResultType<Event, Failure> =
-        eventsRepository.getEvent(date)
+    suspend fun invoke(date: LocalDate): ResultType<Event, Failure> {
+        return ResultType.Success(eventsRepository.getEventInfo(date))
+    }
 }
