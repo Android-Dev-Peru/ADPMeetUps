@@ -18,6 +18,10 @@ kotlin {
         }
     }
 
+    task("testClasses") {
+        // just to avoid "cannot find "composeApp:testClasses" task
+    }
+
     jvm("desktop")
 
     listOf(

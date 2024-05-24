@@ -3,6 +3,6 @@ package domain
 import kotlinx.datetime.LocalDate
 
 interface EventsRepository {
-    suspend fun getEventInfo(date: LocalDate)
-    suspend fun getAllEvent(period: Int)
+    suspend fun getEventInfo(date: LocalDate): Event
+    suspend fun getAllEvent(period: Int): List<Event>
 }

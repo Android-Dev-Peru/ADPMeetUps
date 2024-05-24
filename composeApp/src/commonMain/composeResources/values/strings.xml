@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ADP Events</string>
+    <string name="error_generic">Error</string>
+    <string name="error_internet">Error en la conexión.</string>
+</resources>
