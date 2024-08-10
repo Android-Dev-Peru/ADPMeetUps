@@ -2,22 +2,22 @@ package data.repository
 
 import domain.Event
 import domain.EventsRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.IO
+import domain.IDispatcherProvider
 import kotlinx.coroutines.withContext
 import kotlinx.datetime.LocalDate
 
-// TODO inject a dispatchers handler
-class EventsRepository : EventsRepository {
-    override suspend fun getEventInfo(date: LocalDate): Event {
-        return withContext(Dispatchers.IO) {
-            TODO("Not yet implemented")
+class EventsRepository(
+    private val dispatcherProvider: IDispatcherProvider
+) : EventsRepository {
+    override suspend fun getEventInfo(date: LocalDate): Result<Event> {
+        return withContext(dispatcherProvider.io()) {
+            Result.failure(Exception("Feature Get Event not implemented yet"))
         }
     }
 
-    override suspend fun getAllEvent(period: Int): List<Event> {
-        return withContext(Dispatchers.IO) {
-            TODO("Not yet implemented")
+    override suspend fun getAllEvents(period: Int): Result<List<Event>> {
+        return withContext(dispatcherProvider.io()) {
+            Result.failure(Exception("Feature Get All Events not implemented yet"))
         }
     }
 
