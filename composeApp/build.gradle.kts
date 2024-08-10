@@ -57,6 +57,8 @@ kotlin {
 
             implementation(libs.kotlinx.datetime)
 
+            implementation(libs.androidx.viewmodel)
+
 
         }
         desktopMain.dependencies {

@@ -6,7 +6,7 @@ import domain.IDispatcherProvider
 import kotlinx.coroutines.withContext
 import kotlinx.datetime.LocalDate
 
-class EventsRepository(
+class MockEventsRepository(
     private val dispatcherProvider: IDispatcherProvider
 ) : EventsRepository {
     override suspend fun getEventInfo(date: LocalDate): Result<Event> {
