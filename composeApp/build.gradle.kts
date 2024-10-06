@@ -48,7 +48,6 @@ kotlin {
             implementation(compose.foundation)
             implementation(compose.material)
             implementation(compose.ui)
-            @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
 
             implementation(libs.ktor.client.core)
@@ -58,7 +57,7 @@ kotlin {
             implementation(libs.kotlinx.datetime)
 
             implementation(libs.androidx.viewmodel)
-
+            implementation(compose.components.uiToolingPreview)
 
         }
         desktopMain.dependencies {
