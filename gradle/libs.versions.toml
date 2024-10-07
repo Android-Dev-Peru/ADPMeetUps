@@ -3,22 +3,23 @@ agp = "8.1.4"
 android-compileSdk = "34"
 android-minSdk = "24"
 android-targetSdk = "34"
-androidx-activityCompose = "1.9.0"
-androidx-appcompat = "1.6.1"
+androidx-activityCompose = "1.9.2"
+androidx-appcompat = "1.7.0"
 androidx-constraintlayout = "2.1.4"
 androidx-core-ktx = "1.13.1"
-androidx-espresso-core = "3.5.1"
+androidx-espresso-core = "3.6.1"
 androidx-material = "1.12.0"
-androidx-test-junit = "1.1.5"
+androidx-test-junit = "1.2.1"
 androidx-splashscreen = "1.0.1"
-compose = "1.6.7"
+compose = "1.7.3"
 jetbrains-viewModel = "2.8.0"
-compose-compiler = "1.5.6"
 compose-plugin = "1.6.10-rc01"
+compose-navigation = "2.7.0-alpha07"
+compose-lifecycle = "2.8.6"
 junit = "4.13.2"
-kotlin = "1.9.22"
+kotlin = "2.0.20"
 ktorClient = "2.3.8"
-kotlinxDatetime = "0.5.0"
+kotlinxDatetime = "0.6.0"
 koin = "3.4.3"
 sqlDelight = "2.0.0"
 core = "1.13.1"
@@ -40,6 +41,8 @@ compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = 
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
+compose-navigation = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "compose-navigation" }
+compose-lifecycle = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "compose-lifecycle" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
@@ -62,6 +65,7 @@ androidx-core = { group = "androidx.core", name = "core", version.ref = "core" }
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 sqlDelight = { id = "app.cash.sqldelight", version.ref = "sqlDelight" }
 serializable = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
