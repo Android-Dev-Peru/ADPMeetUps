@@ -1,33 +1,26 @@
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.navigation.NavType.Companion.StringType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import core.ui.AdpDestination
+import features.HomeRoute
 
 @Composable
 fun App() {
     MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
-        val greeting = remember { Greeting().greet() }
-        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
+        val navController = rememberNavController()
+        NavHost(navController, startDestination = AdpDestination.Home.route) {
+            composable(AdpDestination.Home.route) {
+                HomeRoute()
             }
-            AnimatedVisibility(showContent) {
-                Column(
-                    Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text("Compose: $greeting")
-                }
+            composable(
+                route = AdpDestination.EventDetail.route,
+                arguments = listOf(navArgument("eventId", builder = { type = StringType }))
+            ) {
+                // EventDetailScreen(eventId = it.arguments?.getString("eventId"))
             }
         }
     }

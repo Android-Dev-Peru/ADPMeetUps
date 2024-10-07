@@ -115,6 +115,7 @@ out/
 .idea/gradle.xml
 .idea/jarRepositories.xml
 .idea/navEditor.xml
+.kotlin
 
 
 ## Plugin-specific files:
