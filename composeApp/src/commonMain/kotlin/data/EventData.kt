@@ -2,6 +2,7 @@ package data
 
 import domain.Event
 import domain.EventLocation
+import domain.EventTalk
 import domain.EventType
 import domain.Speaker
 import kotlinx.datetime.LocalDate
@@ -15,10 +16,18 @@ data class EventEntity(
     val createdAt: LocalDate,
     val lastUpdate: LocalDate,
     val eventBannerUrl: String,
-    val speakers: SpeakerEntity,
+    val talks: List<EventTalkEntity>,
     val evenType: String,
     val eventLocation: String,
     val addressInfo: String
+)
+
+@Serializable
+data class EventTalkEntity(
+    val title: String,
+    val description: String,
+    val speakers: List<SpeakerEntity>,
+    val bannerUrl: String? = null
 )
 
 @Serializable
@@ -33,10 +42,17 @@ fun EventEntity.toDomain() = Event(
     createdAt = this.createdAt,
     lastUpdate = this.lastUpdate,
     eventBannerUrl = this.eventBannerUrl,
-    speakers = this.speakers.toDomain(),
+    talks = this.talks.map { it.toDomain() },
     evenType = EventType.valueOf(this.evenType),
     eventLocation = EventLocation.valueOf(this.eventLocation),
     addressInfo = this.addressInfo
+)
+
+fun EventTalkEntity.toDomain() = EventTalk(
+    title = this.title,
+    description = this.description,
+    speakers = this.speakers.map { it.toDomain() },
+    bannerUrl = this.bannerUrl
 )
 
 fun SpeakerEntity.toDomain() = Speaker(

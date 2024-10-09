@@ -6,8 +6,10 @@ import domain.AdpError
 import domain.Event
 import domain.usecase.GetEventList
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -16,9 +18,16 @@ class HomeViewModel(
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(HomeUiState())
-    val uiState: StateFlow<HomeUiState> = _uiState.asStateFlow()
+    val uiState: StateFlow<HomeUiState> = _uiState
+        .onStart {
+            getEvents()
+        }.stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(),
+            HomeUiState()
+        )
 
-    fun getEvents() {
+    private fun getEvents() {
         // TODO add kotlinx-coroutines-swing to make viewModelScope
         // available in desktop
         viewModelScope.launch {

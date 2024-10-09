@@ -12,10 +12,17 @@ data class Event(
     val createdAt: LocalDate,
     val lastUpdate: LocalDate,
     val eventBannerUrl: String,
-    val speakers: Speaker,
+    val talks: List<EventTalk>,
     val evenType: EventType,
     val eventLocation: EventLocation,
     val addressInfo: String
+)
+
+data class EventTalk(
+    val title: String,
+    val description: String,
+    val speakers: List<Speaker>,
+    val bannerUrl: String? = null
 )
 
 data class Speaker(

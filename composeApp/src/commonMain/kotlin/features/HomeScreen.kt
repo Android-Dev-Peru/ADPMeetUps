@@ -1,14 +1,16 @@
+@file:OptIn(ExperimentalFoundationApi::class)
+
 package features
 
-import androidx.compose.material.Scaffold
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import core.DomainInjector
-import core.collectAsStateMultiplatform
 
 @Composable
 fun HomeRoute(
@@ -18,11 +20,7 @@ fun HomeRoute(
     }
 ) {
 
-    val uiState by vm.uiState.collectAsStateMultiplatform()
-
-    LaunchedEffect(Unit) {
-        vm.getEvents()
-    }
+    val uiState by vm.uiState.collectAsState()
 
     HomeScreen(
         modifier = modifier,
@@ -32,9 +30,14 @@ fun HomeRoute(
 
 @Composable
 private fun HomeScreen(modifier: Modifier = Modifier, uiState: HomeUiState) {
-    Scaffold(
+    LazyColumn(
         modifier = modifier
     ) {
-        Text("Android Dev Perú App")
+        stickyHeader(key = "header") {
+            Text("Android Dev Perú")
+        }
+        items(uiState.events.size) { index ->
+            Text(uiState.events[index].title)
+        }
     }
 }
