@@ -1,5 +1,8 @@
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -18,7 +21,7 @@ fun App() {
     AdpTheme {
         val navController = rememberNavController()
         Scaffold(
-            modifier = Modifier.fillMaxSize().navigationBarsPadding(),
+            modifier = Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing),
             bottomBar = {
                 AdpBottomNavigationBar(
                     modifier = Modifier,
