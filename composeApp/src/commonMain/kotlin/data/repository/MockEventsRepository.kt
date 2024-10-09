@@ -28,7 +28,7 @@ class MockEventsRepository(
                     date = LocalDate(2024, 10, 19),
                     createdAt = LocalDate(2024, 1, 1),
                     lastUpdate = LocalDate(2024, 10, 9),
-                    eventBannerUrl = "",
+                    eventBannerUrl = "https://androidperu.dev/events/conf2024/adp-stock-photo-2.webp",
                     talks = listOf(
                         EventTalk(
                             title = "Charla 1",

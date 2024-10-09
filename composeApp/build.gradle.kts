@@ -43,6 +43,7 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.androidx.splashScreen)
             implementation(libs.compose.lifecycle)
+            implementation(libs.ktor.client.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -61,6 +62,12 @@ kotlin {
             implementation(libs.androidx.viewmodel)
             implementation(compose.components.uiToolingPreview)
 
+            implementation(libs.coil.network)
+            implementation(libs.coil.compose)
+
+        }
+        appleMain.dependencies {
+            implementation(libs.ktor.client.darwin)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

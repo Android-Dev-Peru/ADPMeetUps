@@ -11,7 +11,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -23,10 +25,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import coil3.compose.AsyncImage
 import core.DomainInjector
 import domain.Event
 import org.jetbrains.compose.resources.stringResource
@@ -88,48 +93,59 @@ private fun EventItem(modifier: Modifier = Modifier, event: Event, onTap: (Event
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Top
     ) {
-        Text(
-            text = event.title,
-            style = MaterialTheme.typography.subtitle1,
-            fontWeight = FontWeight.SemiBold
-        )
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.Start)
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Icon(
-                imageVector = Icons.Outlined.DateRange,
-                contentDescription = null,
-                tint = MaterialTheme.colors.secondary
+            AsyncImage(
+                modifier = Modifier.clip(RoundedCornerShape(8.dp)).widthIn(max = 130.dp),
+                model = event.eventBannerUrl,
+                contentDescription = event.title,
+                contentScale = ContentScale.Crop,
             )
-            Text(
-                modifier = Modifier.weight(1.0f),
-                text = event.date.toString(),
-                style = MaterialTheme.typography.caption,
-                color = MaterialTheme.colors.secondary
-            )
+            Column {
+                Text(
+                    text = event.title,
+                    style = MaterialTheme.typography.subtitle1,
+                    fontWeight = FontWeight.SemiBold
+                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.Start)
+                ) {
+                    Icon(
+                        imageVector = Icons.Outlined.DateRange,
+                        contentDescription = null,
+                        tint = MaterialTheme.colors.secondary
+                    )
+                    Text(
+                        modifier = Modifier.weight(1.0f),
+                        text = event.date.toString(),
+                        style = MaterialTheme.typography.caption,
+                        color = MaterialTheme.colors.secondary
+                    )
+                }
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.Start)
+                ) {
+                    Icon(
+                        imageVector = Icons.Outlined.Place,
+                        contentDescription = null,
+                        tint = MaterialTheme.colors.secondary
+                    )
+                    Text(
+                        modifier = Modifier.weight(1.0f),
+                        text = event.addressInfo,
+                        style = MaterialTheme.typography.caption,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis,
+                        color = MaterialTheme.colors.secondary
+                    )
+                }
+            }
         }
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.Start)
-        ) {
-            Icon(
-                imageVector = Icons.Outlined.Place,
-                contentDescription = null,
-                tint = MaterialTheme.colors.secondary
-            )
-            Text(
-                modifier = Modifier.weight(1.0f),
-                text = event.addressInfo,
-                style = MaterialTheme.typography.caption,
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
-                color = MaterialTheme.colors.secondary
-            )
-        }
-
-
         Text(
             text = event.description,
             style = MaterialTheme.typography.body2,
