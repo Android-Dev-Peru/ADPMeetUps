@@ -1,4 +1,4 @@
-package core.ui
+package core.ui.components
 
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults

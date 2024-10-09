@@ -11,7 +11,7 @@ private object Theme {
     val DARK_GREEN = Color(56, 118, 29)
     val LIGHT_GREEN = Color(166, 199, 66)
     val LIGHT_BLUE = Color(174, 203, 250)
-    val GRAY = Color(230, 230, 230)
+    val GRAY = Color(180, 180, 180)
 
     data class ThemeColor(
         val light: Color,
@@ -49,34 +49,6 @@ private object Theme {
     val onSurface = ThemeColor(
         light = Color.Black,
         dark = Color.White,
-    )
-    val border = ThemeColor(
-        light = Color(218, 220, 224),
-        dark = Color(128, 134, 139),
-    )
-    val shadow = ThemeColor(
-        light = Color(0.0f, 0.0f, 0.0f, 0.1f),
-        dark = Color(255f, 255f, 255f, 0.2f),
-    )
-    val link = ThemeColor(
-        light = DARK_GREEN,
-        dark = LIGHT_BLUE,
-    )
-    val navbar = ThemeColor(
-        light = background.light,
-        dark = surface.dark,
-    )
-    val navbarBorder = ThemeColor(
-        light = border.light,
-        dark = border.light.darken(0.5f)
-    )
-    val navmask = ThemeColor(
-        light = Color(0f, 0f, 0f, 0.4f),
-        dark = Color(0f, 0f, 0f, 0.6f),
-    )
-    val tableHeader = ThemeColor(
-        light = Color(240, 240, 240),
-        dark = Color(50, 50, 50),
     )
 }
 
