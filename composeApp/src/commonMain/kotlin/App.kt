@@ -27,6 +27,11 @@ fun App() {
                             this.launchSingleTop = true
                         }
                     },
+                    onLiveEventTap = {
+                        navController.navigate(AdpDestination.LiveEvent.route) {
+                            this.launchSingleTop = true
+                        }
+                    },
                     onInfoTap = {
                         navController.navigate(AdpDestination.CommunityDetails.route) {
                             this.launchSingleTop = true
@@ -48,6 +53,18 @@ fun App() {
                     arguments = listOf(navArgument("eventId", builder = { type = StringType }))
                 ) {
                     // EventDetailScreen(eventId = it.arguments?.getString("eventId"))
+                }
+                composable(
+                    route = AdpDestination.CommunityDetails.route,
+                    arguments = listOf(navArgument("eventId", builder = { type = StringType }))
+                ) {
+                    // CommunityDetailScreen()
+                }
+                composable(
+                    route = AdpDestination.LiveEvent.route,
+                    arguments = listOf(navArgument("eventId", builder = { type = StringType }))
+                ) {
+                    // LiveEventScreen()
                 }
             }
         }

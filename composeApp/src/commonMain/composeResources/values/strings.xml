@@ -5,6 +5,7 @@
 
     <!-- region Screen Titles -->
     <string name="screenTitle_home">Inicio</string>
+    <string name="screenTitle_live_event">Evento en Vivo</string>
     <string name="screenTitle_community_info">Información de la comunidad</string>
     <string name="screenTitle_event_info">Información del Evento</string>
     <!-- endregion -->
