@@ -24,7 +24,8 @@ class MockEventsRepository(
                 Event(
                     id = "1",
                     title = "Android Dev Perú Conf",
-                    description = "Android Dev Perú Conf",
+                    description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+                    date = LocalDate(2024, 10, 19),
                     createdAt = LocalDate(2024, 1, 1),
                     lastUpdate = LocalDate(2024, 10, 9),
                     eventBannerUrl = "",
@@ -43,7 +44,7 @@ class MockEventsRepository(
                     ),
                     evenType = domain.EventType.MEETUP,
                     eventLocation = EventLocation.IN_PERSON,
-                    addressInfo = ""
+                    addressInfo = "UPC Monterrico - Prolongación Primavera 2390, Santiago de Surco, Lima, Perú"
                 )
             )
             Result.success(events)

@@ -13,6 +13,7 @@ data class EventEntity(
     val id: String,
     val title: String,
     val description: String,
+    val date: LocalDate,
     val createdAt: LocalDate,
     val lastUpdate: LocalDate,
     val eventBannerUrl: String,
@@ -45,6 +46,7 @@ fun EventEntity.toDomain() = Event(
     talks = this.talks.map { it.toDomain() },
     evenType = EventType.valueOf(this.evenType),
     eventLocation = EventLocation.valueOf(this.eventLocation),
+    date = this.date,
     addressInfo = this.addressInfo
 )
 

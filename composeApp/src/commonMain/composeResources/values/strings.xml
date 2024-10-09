@@ -9,4 +9,6 @@
     <string name="screenTitle_event_info">Información del Evento</string>
     <!-- endregion -->
 
+    <string name="home_events_list">Eventos de la Comunidad</string>
+
 </resources>

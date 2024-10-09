@@ -9,6 +9,7 @@ data class Event(
     val id: String,
     val title: String,
     val description: String,
+    val date: LocalDate,
     val createdAt: LocalDate,
     val lastUpdate: LocalDate,
     val eventBannerUrl: String,

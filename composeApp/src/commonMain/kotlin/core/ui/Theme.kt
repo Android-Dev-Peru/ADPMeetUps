@@ -11,7 +11,7 @@ private object Theme {
     val DARK_GREEN = Color(56, 118, 29)
     val LIGHT_GREEN = Color(166, 199, 66)
     val LIGHT_BLUE = Color(174, 203, 250)
-    val GRAY = Color(230, 230, 230)
+    val GRAY = Color(180, 180, 180)
 
     data class ThemeColor(
         val light: Color,

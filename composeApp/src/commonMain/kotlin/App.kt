@@ -37,7 +37,11 @@ fun App() {
         ) {
             NavHost(navController, startDestination = AdpDestination.Home.route) {
                 composable(AdpDestination.Home.route) {
-                    HomeRoute()
+                    HomeRoute(
+                        onEventTap = {
+                            navController.navigate(AdpDestination.EventDetail.route)
+                        }
+                    )
                 }
                 composable(
                     route = AdpDestination.EventDetail.route,
