@@ -1,6 +1,7 @@
 package domain
 
 import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalTime
 
 /**
  * A MeetUp Event.
@@ -10,6 +11,8 @@ data class Event(
     val title: String,
     val description: String,
     val date: LocalDate,
+    val startTime: LocalTime,
+    val endTime: LocalTime,
     val createdAt: LocalDate,
     val lastUpdate: LocalDate,
     val eventBannerUrl: String,

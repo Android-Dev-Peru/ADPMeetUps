@@ -3,3 +3,4 @@ class JVMPlatform : Platform {
 }
 
 actual fun getPlatform(): Platform = JVMPlatform()
+actual fun getPlatformName(): PlatformName = PlatformName.DESKTOP

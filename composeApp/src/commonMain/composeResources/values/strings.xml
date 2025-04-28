@@ -12,4 +12,9 @@
 
     <string name="home_events_list">Eventos de la Comunidad</string>
 
+    <!-- region Screen Detail Event -->
+    <string name="detailEvent_toast_success">Evento registrado con éxito</string>
+    <string name="detailEvent_toast_failure">Ocurrió un error al registrar el evento</string>
+    <string name="detailEvent_add_to_calendar_button">Añadir al calendario</string>
+
 </resources>

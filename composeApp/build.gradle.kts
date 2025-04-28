@@ -32,6 +32,7 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+            linkerOpts.add("-Xlinker -dead_strip")
         }
     }
 
