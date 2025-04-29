@@ -13,7 +13,6 @@ import platform.EventKit.EKSpan
 import platform.Foundation.NSCalendar
 import platform.Foundation.NSDate
 import platform.Foundation.NSDateComponents
-import platform.Foundation.NSError
 import kotlin.coroutines.resume
 
 actual class CalendarManager actual constructor(private val context: Any?) {
@@ -42,19 +41,11 @@ actual class CalendarManager actual constructor(private val context: Any?) {
                 this.startDate = startDateNS
                 this.endDate = endDateNS
                 this.location = location
-                // Importante: asignar un calendario
                 this.calendar = eventStore.defaultCalendarForNewEvents
             }
 
-            //var errorPtr: NSError? = null
             val success = eventStore.saveEvent(event, EKSpan.EKSpanThisEvent, null)
 
-            /*if (errorPtr != null) {
-                println("Error al guardar evento: ${errorPtr?.localizedDescription}")
-                return@withContext false
-            }*/
-
-            //eventStore.saveEvent(event, EKSpan.EKSpanThisEvent, null)
             success
         } catch (e: Exception) {
             println("Excepción al crear evento: ${e.message}")
@@ -84,18 +75,6 @@ actual class CalendarManager actual constructor(private val context: Any?) {
                 println("Error al solicitar permisos: ${error.localizedDescription}")
             }
             continuation.resume(granted)
-        }
-    }
-
-    private suspend fun requestAccess(): Boolean {
-        return withContext(Dispatchers.Main) {
-            var accessGranted = false
-            eventStore.requestAccessToEntityType(
-                EKEntityType.EKEntityTypeEvent
-            ) { granted, error ->
-                accessGranted = granted
-            }
-            accessGranted
         }
     }
 }
