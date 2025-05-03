@@ -6,6 +6,7 @@ import domain.EventTalk
 import domain.EventType
 import domain.Speaker
 import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalTime
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -14,6 +15,8 @@ data class EventEntity(
     val title: String,
     val description: String,
     val date: LocalDate,
+    val startTime: LocalTime,
+    val endTime: LocalTime,
     val createdAt: LocalDate,
     val lastUpdate: LocalDate,
     val eventBannerUrl: String,
@@ -47,6 +50,8 @@ fun EventEntity.toDomain() = Event(
     evenType = EventType.valueOf(this.evenType),
     eventLocation = EventLocation.valueOf(this.eventLocation),
     date = this.date,
+    startTime = this.startTime,
+    endTime = this.endTime,
     addressInfo = this.addressInfo
 )
 

@@ -1,11 +1,12 @@
 @file:OptIn(ExperimentalFoundationApi::class)
 
-package features
+package features.main
 
 import adpmeetups.composeapp.generated.resources.Res
 import adpmeetups.composeapp.generated.resources.home_events_list
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -32,6 +33,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
+import coil3.compose.LocalPlatformContext
+import coil3.request.CachePolicy
+import coil3.request.ImageRequest
 import core.DomainInjector
 import domain.Event
 import org.jetbrains.compose.resources.stringResource
@@ -94,12 +98,23 @@ private fun EventItem(modifier: Modifier = Modifier, event: Event, onTap: (Event
         verticalArrangement = Arrangement.Top
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable {
+                    onTap(event)
+                },
             verticalAlignment = Alignment.CenterVertically
         ) {
             AsyncImage(
-                modifier = Modifier.clip(RoundedCornerShape(8.dp)).widthIn(max = 130.dp),
-                model = event.eventBannerUrl,
+                modifier = Modifier
+                    .clip(RoundedCornerShape(8.dp))
+                    .widthIn(max = 130.dp),
+                model = ImageRequest
+                    .Builder(LocalPlatformContext.current)
+                    .data(event.eventBannerUrl)
+                    .memoryCachePolicy(CachePolicy.DISABLED)
+                    .diskCachePolicy(CachePolicy.DISABLED)
+                    .build(),
                 contentDescription = event.title,
                 contentScale = ContentScale.Crop,
             )
