@@ -1,5 +1,6 @@
-package domain
+package domain.repository
 
+import domain.models.Event
 import kotlinx.datetime.LocalDate
 
 interface EventsRepository {

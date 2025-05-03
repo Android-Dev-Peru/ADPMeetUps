@@ -1,11 +1,12 @@
 package data.repository
 
-import domain.Event
-import domain.EventLocation
-import domain.EventTalk
-import domain.EventsRepository
+import domain.models.Event
+import domain.models.EventLocation
+import domain.models.EventTalk
+import domain.repository.EventsRepository
 import domain.IDispatcherProvider
-import domain.Speaker
+import domain.models.EventType
+import domain.models.Speaker
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.withContext
@@ -70,7 +71,7 @@ class MockEventsRepository(
                             bannerUrl = "https://res.cloudinary.com/practicaldev/image/fetch/s--AL-Z6Dmp--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xd3pk3kbay51di61bkiv.jpeg"
                         )
                     ),
-                    evenType = domain.EventType.MEETUP,
+                    evenType = EventType.MEETUP,
                     eventLocation = EventLocation.IN_PERSON,
                     addressInfo = "UPC Monterrico - Prolongación Primavera 2390, Santiago de Surco, Lima, Perú"
                 ),
@@ -97,7 +98,7 @@ class MockEventsRepository(
                             bannerUrl = "https://res.cloudinary.com/practicaldev/image/fetch/s--AL-Z6Dmp--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xd3pk3kbay51di61bkiv.jpeg"
                         )
                     ),
-                    evenType = domain.EventType.MEETUP,
+                    evenType = EventType.MEETUP,
                     eventLocation = EventLocation.IN_PERSON,
                     addressInfo = "NttData"
                 )

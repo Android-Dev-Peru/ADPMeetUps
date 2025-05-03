@@ -37,7 +37,7 @@ import coil3.compose.LocalPlatformContext
 import coil3.request.CachePolicy
 import coil3.request.ImageRequest
 import core.DomainInjector
-import domain.Event
+import domain.models.Event
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
