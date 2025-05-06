@@ -1,5 +1,6 @@
 package core
 
+import domain.usecase.GetCommunityInfo
 import domain.usecase.GetEventById
 import domain.usecase.GetEventList
 
@@ -13,4 +14,7 @@ object DomainInjector {
         GetEventById(eventsRepository = RepositoryInjector.eventsRepository)
     }
 
+    val getCommunityInfo: GetCommunityInfo by lazy {
+        GetCommunityInfo(communityRepository = RepositoryInjector.communityRepository)
+    }
 }

@@ -33,9 +33,9 @@ import coil3.compose.AsyncImage
 import coil3.compose.LocalPlatformContext
 import core.DomainInjector
 import core.ui.components.platform.showToast
-import domain.Event
-import domain.EventTalk
-import domain.Speaker
+import domain.models.Event
+import domain.models.EventTalk
+import domain.models.Speaker
 import features.eventDetail.platform.CalendarManager
 import getPlatformName
 import kotlinx.coroutines.launch

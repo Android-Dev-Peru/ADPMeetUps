@@ -1,10 +1,10 @@
-package data
+package data.models
 
-import domain.Event
-import domain.EventLocation
-import domain.EventTalk
-import domain.EventType
-import domain.Speaker
+import domain.models.Event
+import domain.models.EventLocation
+import domain.models.EventTalk
+import domain.models.EventType
+import domain.models.Speaker
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalTime
 import kotlinx.serialization.Serializable

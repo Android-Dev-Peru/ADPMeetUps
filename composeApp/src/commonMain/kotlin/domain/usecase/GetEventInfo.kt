@@ -1,7 +1,7 @@
 package domain.usecase
 
-import domain.Event
-import domain.EventsRepository
+import domain.models.Event
+import domain.repository.EventsRepository
 import kotlinx.datetime.LocalDate
 
 class GetEventInfo(private val eventsRepository: EventsRepository) {

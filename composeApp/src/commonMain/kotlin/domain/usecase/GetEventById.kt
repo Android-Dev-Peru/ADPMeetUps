@@ -1,7 +1,7 @@
 package domain.usecase
 
-import domain.Event
-import domain.EventsRepository
+import domain.models.Event
+import domain.repository.EventsRepository
 
 class GetEventById(private val eventsRepository: EventsRepository) {
     suspend fun invoke(id: String): Result<Event?> {

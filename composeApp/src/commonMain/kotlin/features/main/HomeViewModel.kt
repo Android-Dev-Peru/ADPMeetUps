@@ -3,7 +3,7 @@ package features.main
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import domain.AdpError
-import domain.Event
+import domain.models.Event
 import domain.usecase.GetEventList
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
