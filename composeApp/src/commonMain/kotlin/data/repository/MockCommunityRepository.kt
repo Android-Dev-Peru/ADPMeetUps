@@ -49,7 +49,7 @@ class MockCommunityRepository(
                         url = "https://www.instagram.com/androiddevperu/"
                     ),
                     SocialMedia(
-                        icon = "https://cdn.simpleicons.org/linkedin",
+                        icon = "https://cdn-icons-png.flaticon.com/512/174/174857.png",
                         url = "https://www.linkedin.com/company/android-dev-peru"
                     ),
                     SocialMedia(

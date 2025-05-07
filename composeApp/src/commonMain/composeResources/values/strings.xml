@@ -16,5 +16,11 @@
     <string name="detailEvent_toast_success">Evento registrado con éxito</string>
     <string name="detailEvent_toast_failure">Ocurrió un error al registrar el evento</string>
     <string name="detailEvent_add_to_calendar_button">Añadir al calendario</string>
+    <!-- endregion -->
+
+    <!-- region Screen Community Detail -->
+    <string name="communityTitle_organizer">Organizers</string>
+    <string name="communityTitle_ex_organizer">Ex Organizers</string>
+    <!-- endregion -->
 
 </resources>

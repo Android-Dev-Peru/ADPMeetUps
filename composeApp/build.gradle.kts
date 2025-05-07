@@ -65,6 +65,7 @@ kotlin {
 
             implementation(libs.coil.network)
             implementation(libs.coil.compose)
+            implementation(libs.coil.svg)
 
         }
         appleMain.dependencies {
