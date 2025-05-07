@@ -14,6 +14,7 @@ import androidx.navigation.navArgument
 import core.ui.AdpDestination
 import core.ui.AdpTheme
 import core.ui.components.AdpBottomNavigationBar
+import features.community.CommunityDetailScreen
 import features.eventDetail.EventDetailScreen
 import features.main.HomeRoute
 
@@ -32,9 +33,9 @@ fun App() {
                         }
                     },
                     onLiveEventTap = {
-                        navController.navigate(AdpDestination.LiveEvent.route) {
+                        /*navController.navigate(AdpDestination.LiveEvent.route) {
                             this.launchSingleTop = true
-                        }
+                        }*/
                     },
                     onInfoTap = {
                         navController.navigate(AdpDestination.CommunityDetails.route) {
@@ -67,10 +68,9 @@ fun App() {
                     EventDetailScreen()
                 }
                 composable(
-                    route = AdpDestination.CommunityDetails.route,
-                    arguments = listOf(navArgument("eventId", builder = { type = StringType }))
+                    route = AdpDestination.CommunityDetails.route
                 ) {
-                    // CommunityDetailScreen()
+                    CommunityDetailScreen()
                 }
                 composable(
                     route = AdpDestination.LiveEvent.route,
